@@ -1,0 +1,25 @@
+{
+  "server": {
+    "applicationConnectors": [
+      {
+        "type": "http",
+        "port": 8080
+      }
+    ],
+    "registerDefaultExceptionMappers": false,
+    "adminConnectors": [
+      {
+        "type": "http",
+        "port": 10000
+      }
+    ]
+  },
+  "logging": {
+    "level": "INFO",
+    "appenders": [
+      {
+        "type": "console"
+      }
+    ]
+  }
+}
