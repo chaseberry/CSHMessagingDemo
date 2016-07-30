@@ -1,4 +1,3 @@
-
 package edu.csh.chase.messaging
 
 import be.tomcools.dropwizard.websocket.WebsocketBundle
@@ -7,7 +6,7 @@ import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
 
-class MessagingApp: Application<MessagingConfig>() {
+class MessagingApp : Application<MessagingConfig>() {
 
     val websocket = WebsocketBundle()
 
@@ -18,6 +17,9 @@ class MessagingApp: Application<MessagingConfig>() {
     }
 
     override fun run(config: MessagingConfig, env: Environment) {
+        Demo.config = config
+
+
 
     }
 }

@@ -1,6 +1,7 @@
 package edu.csh.chase.messaging.managers
 
 import edu.csh.chase.messaging.models.Client
+import edu.csh.chase.messaging.models.Message
 import java.util.*
 import javax.websocket.CloseReason
 import javax.websocket.Session
@@ -24,6 +25,18 @@ class ClientManager {
 
     fun removeClient(session: Session) {
         clients.removeIf { it.session == session }
+    }
+
+    fun onMessage(message: String, session: Session) {
+        clients.find { it.session == session }?.onMessage(message)
+    }
+
+    fun onPong(session: Session) {
+        clients.find { it.session == session }?.onPong()
+    }
+
+    fun notifyNewMessage(msg: Message) {
+        clients.forEach { it.send(msg) }
     }
 
 }
