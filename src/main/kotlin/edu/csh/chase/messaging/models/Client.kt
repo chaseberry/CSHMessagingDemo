@@ -22,9 +22,9 @@ class Client(val session: Session,
         val obj = Json.parseToObject(message) ?: return
 
         val txt = obj.getString("message") ?: return
-        val room = obj.getString("room") ?: return
+        //val room = obj.getString("room") ?: return
 
-        Demo.messages.postMessage(this, txt, room)
+        Demo.messages.postMessage(this, txt, "chat")
     }
 
     fun onPong() {

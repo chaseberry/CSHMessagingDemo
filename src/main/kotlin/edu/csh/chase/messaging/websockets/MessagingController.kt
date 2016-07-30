@@ -2,7 +2,9 @@ package edu.csh.chase.messaging.websockets
 
 import edu.csh.chase.messaging.Demo
 import javax.websocket.*
+import javax.websocket.server.ServerEndpoint
 
+@ServerEndpoint("/demo")
 class MessagingController {
 
     @OnOpen

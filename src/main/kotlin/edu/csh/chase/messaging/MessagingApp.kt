@@ -2,6 +2,7 @@ package edu.csh.chase.messaging
 
 import be.tomcools.dropwizard.websocket.WebsocketBundle
 import edu.csh.chase.messaging.config.MessagingConfig
+import edu.csh.chase.messaging.websockets.MessagingController
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
@@ -19,7 +20,7 @@ class MessagingApp : Application<MessagingConfig>() {
     override fun run(config: MessagingConfig, env: Environment) {
         Demo.config = config
 
-
+        websocket.addEndpoint(MessagingController::class.java)
 
     }
 }

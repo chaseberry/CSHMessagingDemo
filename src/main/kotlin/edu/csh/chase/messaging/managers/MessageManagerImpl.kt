@@ -11,6 +11,10 @@ class MessageManagerImpl : MessageManager {
 
     val messages = HashMap<String, ArrayList<Message>>()
 
+    init {
+        messages["chat"] = ArrayList()
+    }
+
     override fun createRoom(creator: Client, name: String) {
         if (name in messages) {
             creator.send(ServerMessage("$name is already a room."))
@@ -29,7 +33,7 @@ class MessageManagerImpl : MessageManager {
 
     override fun postMessage(sender: Client, message: String, room: String) {
         val msg = Message(sender.name, message, room)
-        if (room !in message) {
+        if (room !in messages) {
             sender.send(ServerMessage("$room is not a room."))
             return
         }
